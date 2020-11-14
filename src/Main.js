@@ -52,12 +52,13 @@ const Main = (props) => {
           onSearch={(value) => searchCity(value)}
         />
         
-        <Button
-                title="Go to Jane's profile"
-                onPress={() =>
-                  props.navigation.navigate('About')}
-                
-          />
+        <TouchableOpacity onPress={() =>
+                  props.navigation.navigate('About')}>
+          <View >
+            <Text style={styles.about}>Uygulama Hakkında</Text>
+          </View>
+        
+        </TouchableOpacity>
           
         
         <View style={{borderWidth: 0.5, borderColor: '#bdbdbd'}} />
@@ -97,5 +98,15 @@ const Main = (props) => {
       borderRadius: 15,
       margin: 3,
       padding: 3,
+    },
+    about: {
+      backgroundColor: '#00766c',
+      fontSize: 15,
+      // fontWeight: 'bold',
+      textAlign: 'center',
+      color: 'white',
+      borderRadius: 15,
+      margin: 3,
+      // padding: 3,
     },
   });

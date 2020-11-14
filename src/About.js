@@ -1,23 +1,34 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
+import {StyleSheet, Text, View, Image,ScrollView} from 'react-native';
 
 const About = (props) => {
   return (
-    <View style={styles.container}>
-      <Text> Created by  &copy;2020</Text>
-      <TouchableOpacity style={{margin:10,padding:10, borderRadius:25}}>
-        <Button 
-        title="Depremler Sayfasına Dön"
-        noBorder
-        onPress={() => props.navigation.navigate('Main')}
-      />
-      </TouchableOpacity> 
+    <ScrollView style={{flex:1}}>
+
+      <View  style={styles.container}>
+              
+        <Image source={require('../src/assets/icon.png')}
+        style={{ width: 50, height: 50 }} />
+        <Text> Deprem Monitörü v0.2</Text>
+        <Text> Created by  &copy;2020</Text>
         
+        <Text>Veriler Gerçek zamanlı olarak
+        {'\n'}
+        https://deprem.odabas.xyz/api/pure_api.php {'\n'}
+        adresinden alınmaktadır.</Text>
+        
+        <Text>Bu versiyonda 3.5 şiddetinden büyük depremler belirginleştirildi.
+        {'\n'} Depremin bilgisinin üzerine basılınca depremin koordinatları belirtildi.
+        {'\n'}Bir sonraki versiyonda harita verilerinin eklenmesi planlanmaktadır.
+        </Text>
+        <Image source={require('../src/assets/app.jpeg')}
+        style={{ width: 80, height: 150 }} />
+        <Text style={{color:'#00766c',padding:40,fontWeight:'bold'}} onPress={() => props.navigation.navigate('Main')}>&lt;&lt;&lt; Depremler Sayfasına Dön</Text>
+        
+            
       
-    
-    </View>
+      </View>
+   </ScrollView>
   );
 };
 
@@ -25,10 +36,11 @@ export default About;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#e0e0e0',
+    backgroundColor: 'white',
     margin: 5,
     padding: 5,
     borderRadius: 5,
-    flex:1,
+    alignItems:'center',
+    justifyContent:'flex-start'
   },
 });
