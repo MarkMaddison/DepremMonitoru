@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import {
@@ -7,13 +8,12 @@ import {
   View,
   ActivityIndicator,
   TouchableOpacity,
+  Button
 } from 'react-native';
 import Guncel from './Components/Guncel';
 import Search from './Components/Search';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Main = () => {
+const Main = (props) => {
     const [listDeprem, setListDeprem] = React.useState([]);
     const [isLoading, setLoading] = React.useState(true);
     const fetchData = async () => {
@@ -52,6 +52,14 @@ const Main = () => {
           onSearch={(value) => searchCity(value)}
         />
         
+        <Button
+                title="Go to Jane's profile"
+                onPress={() =>
+                  props.navigation.navigate('About')}
+                
+          />
+          
+        
         <View style={{borderWidth: 0.5, borderColor: '#bdbdbd'}} />
 
           {isLoading ? (
@@ -72,6 +80,7 @@ const Main = () => {
                 keyExtractor={(_, index) => index.toString()}
                 />
                 )}
+          
       </View>
     );
   };
