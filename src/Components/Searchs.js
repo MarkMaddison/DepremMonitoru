@@ -1,19 +1,19 @@
 import React from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 
-const Search = (props) => {
+const Searchs = (props) => {
   return (
     <View>
       <TextInput
         placeholder={props.placeholder}
-        onChangeText={(value) => props.onSearch(value)}
+        onChangeText={(value2) => props.onSearch(value2)}
       />
       
     </View>
   );
 };
 
-export default Search;
+export default Searchs;
 
 const styles = StyleSheet.create({
   container: {

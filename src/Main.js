@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import Guncel from './Components/Guncel';
 import Search from './Components/Search';
+import Searchs from './Components/Searchs';
 
 const Main = (props) => {
     const [listDeprem, setListDeprem] = React.useState([]);
@@ -43,23 +44,40 @@ const Main = (props) => {
   
       setListDeprem(filteredCities);
     }
+    function searchCitys(Searchs) {
+      const filteredCities = originalList.filter((x) => {
+        const text = Searchs;
+        const cityName = x.siddet;
+  
+        return cityName.indexOf(text) > -1;
+      });
+  
+      setListDeprem(filteredCities);
+    }
     
     return (
-      <View>
-        <Text style={styles.header}> En Son Depremler </Text>
-        <Search
-          placeholder="  🔎 Search a place..."
-          onSearch={(value) => searchCity(value)}
-        />
-        
-        <TouchableOpacity onPress={() =>
-                  props.navigation.navigate('About')}>
-          <View >
-            <Text style={styles.about}>Uygulama Hakkında</Text>
-          </View>
-        
-        </TouchableOpacity>
-          
+          <View style={{flex:1,backgroundColor:'white'}}>
+              <Text style={styles.header}> En Son Depremler </Text>
+              <View style={{flex:0.1,flexDirection:'row',justifyContent:'space-between'}}>
+
+              <Search  placeholder="  🔎 Yere göre ara"
+                onSearch={(value) => searchCity(value)}/>
+              <Searchs placeholder="🔎 Şiddete göre Ara"
+                onSearch={(value2) => searchCitys(value2)}/>
+              </View>
+              
+              <View style={{flex:0.05,backgroundColor: '#00766c',flexDirection:'row',justifyContent:'space-between'}}>
+                <TouchableOpacity onPress={() =>
+                          props.navigation.navigate('About')}>
+                  <Text style={styles.about}>Harita Görünümü</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() =>
+                          props.navigation.navigate('About')}>
+                  <Text style={styles.about}>Uygulama Hakkında</Text>
+                </TouchableOpacity>
+              </View>
+
+
         
         <View style={{borderWidth: 0.5, borderColor: '#bdbdbd'}} />
 
@@ -70,7 +88,7 @@ const Main = (props) => {
             color="#80d6ff"
             />
             ) : (
-              <FlatList
+              <FlatList style={{flex:1}}
               data={listDeprem}
               renderItem={renderItemList}
               ItemSeparatorComponent={() => (
@@ -100,13 +118,22 @@ const Main = (props) => {
       padding: 3,
     },
     about: {
-      backgroundColor: '#00766c',
+      // backgroundColor: '#00766c',
       fontSize: 15,
-      // fontWeight: 'bold',
+      fontWeight: 'bold',
       textAlign: 'center',
       color: 'white',
-      borderRadius: 15,
+      // borderRadius: 15,
       margin: 3,
-      // padding: 3,
+      padding: 3,
+    },
+    container: {
+      backgroundColor: 'white',
+      margin: 5,
+      padding: 5,
+      alignItems:'center',
+      justifyContent:'flex-start',
+      alignItems:'center',
+      flex:1
     },
   });

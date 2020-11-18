@@ -5,11 +5,12 @@ const About = (props) => {
   return (
     <ScrollView>
 
-      <View  style={styles.container}>
+        <View  style={styles.container}>
         <Image source={require('../src/assets/icon.png')}
         style={{ width: 50, height: 50 }} />
         <Text> Deprem Monitörü v0.2</Text>
         <Text> Created by  &copy;2020{'\n'}</Text>
+        
         
         <View>
           <Text>Veriler Gerçek zamanlı olarak
@@ -23,11 +24,16 @@ const About = (props) => {
         </View>  
         <Image source={require('../src/assets/app.jpeg')}
         style={{ width: 80, height: 150 }} />
-        <Text style={{color:'#00766c',padding:40,fontWeight:'bold'}} onPress={() => props.navigation.navigate('Main')}>&lt;&lt;&lt; Depremler Sayfasına Dön</Text>
+        
+        <View style={{flex:1,flexDirection:'row',flexWrap:'nowrap',justifyContent:'flex-start'}}>
+          <Text style={styles.text} onPress={() => props.navigation.navigate('Main')}>&lt;&lt;&lt; Depremler Sayfasına Dön</Text>
+          <Text style={styles.text} onPress={() => props.navigation.navigate('Main')}>Depremler Sayfasına Dön &gt;&gt;&gt; </Text>
+        </View>
+        </View>
         
             
       
-      </View>
+      
    </ScrollView>
   );
 };
@@ -40,6 +46,13 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 5,
     borderRadius: 5,
+    alignItems:'center',
+    justifyContent:'flex-start',
+    alignItems:'center'
+  },
+  text: {
+    margin: 10,
+    // padding: 10,
     alignItems:'center',
     justifyContent:'flex-start',
     alignItems:'center'

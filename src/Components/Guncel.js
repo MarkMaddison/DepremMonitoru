@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const Guncel = ({items}) => {
+
   return (
     <TouchableOpacity onPress={() => {
       alert('Enlem - Boylam : '+items.enlem+' '+' '+items.boylam);
@@ -32,7 +33,7 @@ const Guncel = ({items}) => {
             padding: 0,
             flex:1,
           }}>
-          <Text style={{fontSize: 20,color: items.siddet > 3.49 ? 'yellow' : 'black'}}>{items.yer}</Text>
+          <Text style={{fontSize: 18,color: items.siddet > 3.49 ? 'yellow' : 'black'}}>{items.yer}</Text>
           <Text style={{color: 'black'}}>Tarih: {items.tarih}  Saat:{items.saat}</Text>
           <Text style={{fontSize: 12,color:'black'}}>Derinlik : {items.derinlik} km</Text>
         </View>
