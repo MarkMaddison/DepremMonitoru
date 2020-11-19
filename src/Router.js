@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 import Main from './Main';
 import About from './About';
+import Map from './Components/Map';
 
 const Router = () => {
     return (
@@ -19,6 +20,12 @@ const Router = () => {
                     name="About"
                     component={About}
                     options={{ headerShown: false }}
+
+                />
+                <Stack.Screen
+                    name="Map"
+                    component={Map}
+                    options={{ headerShown: true }}
 
                 />
                 

@@ -9,7 +9,7 @@ const About = (props) => {
         <Image source={require('../src/assets/icon.png')}
         style={{ width: 50, height: 50 }} />
         <Text> Deprem Monitörü v0.2</Text>
-        <Text> Created by  &copy;2020{'\n'}</Text>
+        {/* <Text> Created by  &copy;2020{'\n'}</Text> */}
         
         
         <View>
@@ -27,7 +27,7 @@ const About = (props) => {
         
         <View style={{flex:1,flexDirection:'row',flexWrap:'nowrap',justifyContent:'flex-start'}}>
           <Text style={styles.text} onPress={() => props.navigation.navigate('Main')}>&lt;&lt;&lt; Depremler Sayfasına Dön</Text>
-          <Text style={styles.text} onPress={() => props.navigation.navigate('Main')}>Depremler Sayfasına Dön &gt;&gt;&gt; </Text>
+          <Text style={styles.text} onPress={() => props.navigation.navigate('Map')}>Haritalara git &gt;&gt;&gt; </Text>
         </View>
         </View>
         

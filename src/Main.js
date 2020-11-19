@@ -14,6 +14,7 @@ import Guncel from './Components/Guncel';
 import Search from './Components/Search';
 import Searchs from './Components/Searchs';
 
+
 const Main = (props) => {
     const [listDeprem, setListDeprem] = React.useState([]);
     const [isLoading, setLoading] = React.useState(true);
@@ -68,7 +69,7 @@ const Main = (props) => {
               
               <View style={{flex:0.05,backgroundColor: '#00766c',flexDirection:'row',justifyContent:'space-between'}}>
                 <TouchableOpacity onPress={() =>
-                          props.navigation.navigate('About')}>
+                          props.navigation.navigate('Map')}>
                   <Text style={styles.about}>Harita Görünümü</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() =>
